@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="{{ .Site.Language.Lang }}">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+        <!-- 🌟 Récupération du titre et description -->
+        {{ $pageTitle := .Title }}
+        {{ $pageDescription := .Params.description }}
+    
+        {{ if .IsHome }}
+            {{ with .Site.GetPage "section" "manifestes" }}
+                {{ $pageTitle = .Title }}
+                {{ $pageDescription = .Params.description }}
+            {{ else }}
+                {{ $pageTitle = "Manifeste du Libertinage" }}
+                {{ $pageDescription = "Découvrez et signez le manifeste du Libertinage." }}
+            {{ end }}
+        {{ end }}
+    
+        <!-- 🌟 Titre Dynamique -->
+        <title>{{ $pageTitle }}</title>
+    
+        <!-- 🌟 Meta Description Dynamique -->
+        <meta name="description" content="{{ $pageDescription }}">
+    
+        <!-- 🌟 Balises hreflang -->
+        {{ range .Site.Languages }}
+            {{ if eq .Lang "fr" }}
+                <link rel="alternate" hreflang="fr" href="{{ "/" | absURL }}" />
+            {{ else }}
+                <link rel="alternate" hreflang="{{ .Lang }}" href="{{ .Lang | absLangURL }}" />
+            {{ end }}
+        {{ end }}
+    
+        <!-- 🌟 Feuille de style -->
+        <link rel="stylesheet" href="{{ "/css/style.css" | relURL }}">
+    </head>
+    
+<body>
+
+<header>
+    <h1>{{ .Title }}</h1>
+</header>
+
+<main>
+    <p style="color:red;">Test baseof.html</p>
+
+    {{ block "main" . }}{{ end }}
+</main>
+
+<footer>
+    <p>&copy; 2024 Manifeste du Libertinage</p>
+</footer>
+
+</body>
+</html>

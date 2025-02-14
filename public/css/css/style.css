@@ -1,0 +1,71 @@
+/* 🌟 Reset de base */
+body {
+    font-family: sans-serif;
+    line-height: 1.6;
+    max-width: 700px;
+    margin: 40px auto;
+    padding: 0 15px;
+    background: #fff;
+    color: #333;
+}
+
+/* 🌟 Amélioration des titres */
+h1, h2, h3 {
+    font-weight: 600;
+    color: #222;
+    margin-bottom: 15px;
+}
+
+/* 🌟 Paragraphe propre et lisible */
+p {
+    margin-bottom: 15px;
+    text-align: justify;
+}
+
+/* 🌟 Liens discrets mais visibles */
+a {
+    color: #007aff;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* 🌟 Formulaire minimal */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+input, button {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+button {
+    background: #007aff;
+    color: white;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #0056b3;
+}
+
+/* 🌟 Mise en page fluide */
+main {
+    padding: 20px;
+}
+
+/* 🌟 Footer léger et centré */
+footer {
+    text-align: center;
+    margin-top: 40px;
+    font-size: 14px;
+    color: #666;
+}
