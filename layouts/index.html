@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="{{ .Site.Language.Lang }}">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="{{ .Params.description }}">
+    <title>{{ .Title }}</title>
+    {{ range .Site.Languages }}
+        {{ if eq .Lang "fr" }}
+            <link rel="alternate" hreflang="fr" href="{{ "/" | absURL }}" />
+        {{ else }}
+            <link rel="alternate" hreflang="{{ .Lang }}" href="{{ .Lang | absLangURL }}" />
+        {{ end }}
+    {{ end }}
+    <link rel="stylesheet" href="{{ "css/style.css" | absURL }}">
+</head>
+<body>
+
+<header>
+    <h1>{{ .Title }}</h1>
+</header>
+
+<main>
+    <article>
+        {{ with .Site.GetPage "section" "manifestes" }}
+            <h2>{{ .Title }}</h2>
+            {{ .Content }}
+        {{ else }}
+            <p>Le manifeste est en cours de rédaction.</p>
+        {{ end }}
+    </article>
+
+    <nav>
+        <ul>
+            {{ range .Site.Languages }}
+                <li><a href="{{ .Lang | relURL }}">{{ .LanguageName }}</a></li>
+            {{ end }}
+        </ul>
+    </nav>
+    <h2>Signer le manifeste</h2>
+
+    <form name="signature" method="POST" data-netlify="true" action="/merci">
+        <input type="hidden" name="form-name" value="signature">
+
+        <label for="prenom">Prénom :</label>
+        <input type="text" id="prenom" name="prenom" required>
+
+        <label for="nom">Nom :</label>
+        <input type="text" id="nom" name="nom" required>
+
+        <button type="submit">Signer</button>
+    </form>
+
+    <p><a href="/signatures/">Voir les signatures</a></p>
+
+</main>
+
+<footer>
+    <p>&copy; 2024 Manifeste du Libertinage</p>
+</footer>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+      // Définition des langues supportées
+      const supportedLanguages = ["fr", "en", "es"];
+
+      // Récupérer la langue du navigateur
+      const userLang = navigator.language || navigator.userLanguage;
+      const langPrefix = userLang.split("-")[0]; // Extrait la partie principale (ex: "fr-FR" → "fr")
+
+      // Vérifier si l'utilisateur est sur la racine ("/") et éviter de rediriger les francophones
+      if (window.location.pathname === "/" && langPrefix !== "fr" && supportedLanguages.includes(langPrefix)) {
+          window.location.replace("/" + langPrefix + "/");
+      }
+  });
+</script>
+
+</body>
+</html>

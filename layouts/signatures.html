@@ -1,0 +1,11 @@
+<h1>Signatures du Manifeste</h1>
+
+<div id="signature-list">
+    {{ range getCSV "," "data/signatures.csv" }}
+        <div class="signature">
+            <p><strong>#{{ index . 0 }}</strong></p>
+            <p>Signé le {{ index . 1 }}</p>
+            <p>{{ index . 2 }} {{ index . 3 }}</p>
+        </div>
+    {{ end }}
+</div>

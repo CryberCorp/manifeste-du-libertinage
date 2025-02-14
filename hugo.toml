@@ -1,0 +1,17 @@
+defaultContentLanguage = "fr"
+defaultContentLanguageInSubdir = false
+enableRobotsTXT = true
+
+[languages]
+  [languages.fr]
+    languageName = "Français"
+    weight = 1
+    title = "Manifeste du Libertinage"
+  [languages.en]
+    languageName = "English"
+    weight = 2
+    title = "Manifesto of Libertinage"
+  [languages.es]
+    languageName = "Español"
+    weight = 3
+    title = "Manifiesto del Libertinaje"

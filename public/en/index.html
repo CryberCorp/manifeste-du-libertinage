@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta name="generator" content="Hugo 0.143.1"><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <title>Manifesto of Libertinage</title>
+    
+        
+            <link rel="alternate" hreflang="fr" href="//localhost:1313/" />
+        
+    
+        
+            <link rel="alternate" hreflang="en" href="//localhost:1313/en" />
+        
+    
+        
+            <link rel="alternate" hreflang="es" href="//localhost:1313/en/es" />
+        
+    
+    <link rel="stylesheet" href="//localhost:1313/css/style.css">
+</head>
+<body>
+
+<header>
+    <h1>Manifesto of Libertinage</h1>
+</header>
+
+<main>
+    <article>
+        
+            <h2>Manifesto of Libertinage</h2>
+            <h1 id="manifesto-of-libertinage">Manifesto of Libertinage</h1>
+<h2 id="introduction">Introduction</h2>
+<p>Libertinage is a way of thinking based on individual freedom&hellip;</p>
+<h2 id="join-us">Join us</h2>
+<p>Sign the manifesto to join our movement.</p>
+
+        
+    </article>
+
+    <nav>
+        <ul>
+            
+                <li><a href="/fr">Français</a></li>
+            
+                <li><a href="/en">English</a></li>
+            
+                <li><a href="/es">Español</a></li>
+            
+        </ul>
+    </nav>
+    <h2>Signer le manifeste</h2>
+
+    <form name="signature" method="POST" data-netlify="true" action="/merci">
+        <input type="hidden" name="form-name" value="signature">
+
+        <label for="prenom">Prénom :</label>
+        <input type="text" id="prenom" name="prenom" required>
+
+        <label for="nom">Nom :</label>
+        <input type="text" id="nom" name="nom" required>
+
+        <button type="submit">Signer</button>
+    </form>
+
+    <p><a href="/signatures/">Voir les signatures</a></p>
+
+</main>
+
+<footer>
+    <p>&copy; 2024 Manifeste du Libertinage</p>
+</footer>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+      
+      const supportedLanguages = ["fr", "en", "es"];
+
+      
+      const userLang = navigator.language || navigator.userLanguage;
+      const langPrefix = userLang.split("-")[0]; 
+
+      
+      if (window.location.pathname === "/" && langPrefix !== "fr" && supportedLanguages.includes(langPrefix)) {
+          window.location.replace("/" + langPrefix + "/");
+      }
+  });
+</script>
+
+</body>
+</html>
